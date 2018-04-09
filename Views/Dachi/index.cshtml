@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/css/style.css"/>
+
+    <title>Dojo Dachi</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="col-md-2"></div>
+            <div class="col-md-2"><h4>Fullness : @ViewBag.fullness</h4></div>
+            <div class="col-md-2"><h4>Happiness : @ViewBag.happiness</h4></div>
+            <div class="col-md-2"><h4>Meals : @ViewBag.meals</h4></div>
+            <div class="col-md-2"><h4>Energy : @ViewBag.energy</h4></div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="dach">
+                @{
+                    if(ViewBag.img == "dragon")
+                    {
+                        <div class="image"><img src="~/images/dragon.png" alt="Web Site" class="img-fluid" /></div>        
+                    }
+                    if(ViewBag.img == "food")
+                    {
+                        <div class="image"><img src="~/images/food.jpg" alt="Web Site" class="img-fluid" /></div>        
+                    }
+                    if(ViewBag.img == "mad")
+                    {
+                        <div class="image"><img src="~/images/mad.png" alt="Web Site" class="img-fluid" /></div>        
+                    }
+                    if(ViewBag.img == "play")
+                    {
+                        <div class="i"><img src="~/images/play.jpg" alt="Web Site" class="img-fluid" /></div>        
+                    }
+                    if(ViewBag.img == "sleep")
+                    {
+                        <div class="image"><img src="~/images/sleep.png" alt="Web Site" class="img-fluid" /></div>        
+                    }
+                    if(ViewBag.img == "work")
+                    {
+                        <div class="image"><img src="~/images/work.png" alt="Web Site" class="img-fluid" /></div>        
+                    }
+                    if(ViewBag.img == "win")
+                    {
+                        <div class="image"><img src="~/images/win.png" alt="Web Site" class="img-fluid" /></div>        
+                    }
+                    if(ViewBag.img == "loss")
+                    {
+                        <div class="image"><img src="~/images/loss.png" alt="Web Site" class="img-fluid" /></div>        
+                    }
+                }
+                <div class="message">@TempData["message"]</div>
+                @{
+                    if(ViewBag.endgame)
+                    {
+                        <form class="newgame" action="/reset" method="post">
+                            <div class="play_again">
+                                <input class="play" type="submit" value="Play Again?">
+                            </div>
+                        </form>
+                    }
+                }                              
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="/feed" method="post">
+                <div class="form-group">
+                    <input type="submit" value="Feed">
+                </div>
+            </form>
+            <form action="/play" method="post">
+                <div class="form-group">
+                    <input type="submit" value="Play">
+                </div>
+            </form>
+            <form action="/work" method="post">
+                <div class="form-group">
+                    <input type="submit" value="Work">
+                </div>
+            </form>
+            <form action="/sleep" method="post">
+                <div class="form-group">
+                    <input type="submit" value="Sleep">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</body>
+</html>
